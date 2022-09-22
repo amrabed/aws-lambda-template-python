@@ -1,17 +1,13 @@
-name: Main checks
-
 on: [push]
 
 jobs:
-  unittest:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.8, 3.9]
-
     env:
       AWS_DEFAULT_REGION: us-east-1
-
     steps:
     - uses: actions/checkout@v3
     - name: Set up Python ${{ matrix.python-version }}
@@ -24,3 +20,9 @@ jobs:
       run: make lint
     - name: Run unit tests with coverage
       run: make unit-test
+    - name: Set up Terraform
+      uses: hashicorp/setup-terraform@v2
+    - name: Run integration tests
+      run: make integration-test
+    - name: Clean up local infra
+      run: make clean

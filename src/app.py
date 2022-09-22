@@ -19,7 +19,7 @@ def main(event: dict, context: LambdaContext):
     :param event: Triggering event
     :param context: Lambda context
     """
-    pass
+    return {}
 
 
 if __name__ == "__main__":

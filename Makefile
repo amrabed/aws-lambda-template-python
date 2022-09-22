@@ -1,4 +1,4 @@
-.PHONY: dependencies format lint unit-test local-infra clean
+.PHONY: dependencies format lint unit-test local-infra clean integration-test
 
 SOURCE_DIR := src
 TEST_DIR := tests
@@ -34,3 +34,8 @@ clean:
 	cd $(INFRA_DIR) && terraform destroy -auto-approve && rm -rf .terraform* terraform.* && cd ../..
 	docker compose -f localstack.yml down
 	-rm -rf dep lambda.zip
+
+integration-test: local-infra
+	pytest tests/integration
+
+test: unit-test integration-test
