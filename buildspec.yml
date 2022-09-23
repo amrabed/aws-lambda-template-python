@@ -1,0 +1,19 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      python: 3.8
+    commands:
+      - pip install --upgrade pip
+      - pip install -r requirements.txt -t .
+
+artifacts:
+  type: zip
+  files:
+    - '**/*'
+  exclude-paths:
+    - test*
+    - .git*
+    - infra
+    - resources
