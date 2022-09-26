@@ -2,6 +2,7 @@
 ![](coverage.svg)
 ![Python](https://img.shields.io/badge/python-3.8%20|%203.9-blue.svg?logo=python)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-black.svg)](https://github.com/psf/black)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=amrabed_python-lambda-template&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=amrabed_python-lambda-template)
 
 A template for developing an AWS Lambda function in Python
 
