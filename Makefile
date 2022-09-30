@@ -33,6 +33,7 @@ lint: format
 unit-test: install  # Run unit tests
 	coverage run --source=$(SOURCE_DIR) -m pytest $(TEST_DIR)/unit
 	coverage report -m
+	coverage xml
 	coverage-badge -q -f -o coverage.svg
 
 integration-test: build  # Run integration tests
